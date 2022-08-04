@@ -1,7 +1,20 @@
+.filter-wrapper {
+  width: fit-content;
+  margin: 0 auto 25px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
 .data-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 8px 16px;
+  max-width: 400px;
+  margin: 0 auto;
 
  & > * mat-icon {
   vertical-align: middle;
@@ -44,16 +57,23 @@
   padding: 0px;
 }
 
-button{
+.actions {
   margin-top: 25px;
 }
 
-
 .qr-code {
-  margin: 25px auto 0px;
+  margin: 0 auto;
   width: fit-content;
 
   img {
     width: 250px;
+  }
+}
+
+
+@media (max-width : 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
   }
 }

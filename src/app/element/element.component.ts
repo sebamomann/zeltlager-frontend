@@ -14,6 +14,7 @@ export class ElementComponent implements OnInit {
   public element = undefined;
 
   public childrenDepth = 1;
+  public parentDepth = 1;
 
   public baseUrl = environment.BASE_URL;
 
@@ -27,13 +28,18 @@ export class ElementComponent implements OnInit {
     });
   }
 
+  parentDepthChange($event) {
+    this.parentDepth = $event.target.value;
+    this.fetchData();
+  }
+
   childrenDepthChange($event) {
     this.childrenDepth = $event.target.value;
     this.fetchData();
   }
 
   public fetchData() {
-    this.httpClient.get(environment.API_URL + "elements/" + this.elementId, { params: { children: "true", parents: "true", "childrenDepth": String(this.childrenDepth), "parentsDepth": "1" } })
+    this.httpClient.get(environment.API_URL + "elements/" + this.elementId, { params: { children: "true", parents: "true", "childrenDepth": String(this.childrenDepth), "parentDepth": String(this.parentDepth) } })
       .subscribe((data) => {
         this.element = data;
       })

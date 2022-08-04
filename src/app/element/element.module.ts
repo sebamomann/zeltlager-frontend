@@ -1,5 +1,5 @@
 import { TreeListModule } from './../tree/tree-list/tree-list.module';
-import { MatIconModule, MatButtonModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -20,7 +20,8 @@ const routes: Routes = [
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
-    TreeListModule
+    TreeListModule,
+    MatInputModule
   ]
 })
 export class ElementModule { }

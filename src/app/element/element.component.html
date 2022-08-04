@@ -4,59 +4,76 @@
   </div>
 
   <div class="element-wrapper wrapper">
-    <input
-      [value]="childrenDepth"
-      (change)="childrenDepthChange($event)"
-      type="number"
-    />
-
-    <div class="data-wrapper">
-      <span>Anzahl</span>
-      <span>{{ element.number }}</span>
-      <ng-container *ngIf="element.parent">
-        <span>Übergeordnet</span>
-        <span class="related-element">
-          <mat-icon
-            class="mat-icon-rtl-mirror"
-            class="open-element direct"
-            [routerLink]="['/element/' + element.parent.id]"
-          >
-            open_in_browser
-          </mat-icon>
-          <span>
-            {{ element.parent.name }}
-          </span>
-        </span>
-      </ng-container>
-      <ng-container *ngIf="element.children.length > 0">
-        <span>Untergeordnet</span>
-        <div class="children">
-          <app-tree-list [elements]="element.children"></app-tree-list>
+    <div class="filter-wrapper">
+      <mat-form-field>
+        <input
+          matInput
+          [value]="childrenDepth"
+          (change)="childrenDepthChange($event)"
+          type="number"
+          placeholder="Tiefe Unterge."
+        />
+      </mat-form-field>
+      <!-- <label for="">Tiefe Überge.</label>
+      <input
+        [value]="parentDepth"
+        (change)="parentDepthChange($event)"
+        type="number"
+      /> -->
+    </div>
+    <div class="grid">
+      <div class="top">
+        <div class="data-wrapper">
+          <span>Anzahl</span>
+          <span>{{ element.number }}</span>
+          <span>Beschreibung</span>
+          <span>{{ element.description }}</span>
+          <ng-container *ngIf="element.parent">
+            <span>Übergeordnet</span>
+            <span class="related-element">
+              <mat-icon
+                class="mat-icon-rtl-mirror"
+                class="open-element direct"
+                [routerLink]="['/element/' + element.parent.id]"
+              >
+                open_in_browser
+              </mat-icon>
+              <span>
+                {{ element.parent.name }}
+              </span>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="element.children.length > 0">
+            <span>Untergeordnet</span>
+            <div class="children">
+              <app-tree-list [elements]="element.children"></app-tree-list>
+            </div>
+          </ng-container>
         </div>
-      </ng-container>
-    </div>
-
-    <div class="qr-code">
-      <img
-        *ngIf="element != undefined"
-        src="{{
-          'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' +
-            baseUrl +
-            '/element/' +
-            element.id +
-            '&choe=UTF-8'
-        }}"
-      />
-    </div>
-
-    <div class="actions">
-      <button
-        mat-raised-button
-        [routerLink]="['/element/' + element.id + '/edit']"
-      >
-        Bearbeiten
-      </button>
-      <button [routerLink]="['/tree']" mat-stroked-button>Zurück</button>
+        <div class="actions">
+          <button
+            mat-raised-button
+            [routerLink]="['/element/' + element.id + '/edit']"
+          >
+            Bearbeiten
+          </button>
+          <button [routerLink]="['/tree']" mat-stroked-button>Zurück</button>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="qr-code">
+          <img
+            *ngIf="element != undefined"
+            src="{{
+              'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=' +
+                baseUrl +
+                '/element/' +
+                element.id +
+                '&choe=UTF-8'
+            }}"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>
