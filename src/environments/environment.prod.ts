@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  API_URL: "api.inventar.kv-kraichgau.sebamomann.de/",
-  BASE_URL: "inventar.kv-kraichgau.sebamomann.de"
+  API_URL: window['env']['API_URL'],
+  BASE_URL: window['env']['BASE_URL'],
 };
