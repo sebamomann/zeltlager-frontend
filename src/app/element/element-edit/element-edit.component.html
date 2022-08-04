@@ -1,0 +1,12 @@
+<div class="header">
+  <h2>Bearbeiten</h2>
+</div>
+<div class="wrapper">
+  <ng-container *ngIf="element | async; let el">
+    <app-element-form
+      [element]="el"
+      [edit]="true"
+      (save)="update($event)"
+    ></app-element-form>
+  </ng-container>
+</div>

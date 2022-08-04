@@ -1,0 +1,11 @@
+form {
+  color: black !important;
+
+  mat-form-field {
+    display: block;
+  }
+
+      .mat-form-field-appearance-legacy .mat-form-field-label {
+      color: black;
+    }
+}

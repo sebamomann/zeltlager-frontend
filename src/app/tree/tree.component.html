@@ -1,0 +1,13 @@
+<div class="header">
+  <h2>Übersicht</h2>
+</div>
+
+<div class="tree-wrapper wrapper">
+  <button [routerLink]="['/element/create']" mat-raised-button>
+    Neues Element
+  </button>
+
+  <ng-container *ngIf="elements | async; let eles">
+    <app-tree-list [elements]="eles"></app-tree-list>
+  </ng-container>
+</div>

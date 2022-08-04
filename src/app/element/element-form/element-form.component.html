@@ -1,0 +1,65 @@
+<form [formGroup]="elementForm" (ngSubmit)="submitForm()">
+  <mat-form-field color="primary">
+    <input
+      matInput
+      id="name"
+      type="text"
+      formControlName="name"
+      placeholder="Name"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="primary">
+    <input
+      matInput
+      id="number"
+      type="number"
+      formControlName="number"
+      placeholder="Anzahl"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="primary">
+    <textarea
+      matInput
+      id="description"
+      type="text"
+      formControlName="description"
+      placeholder="Beschreibung"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Übergeordnetes Element</mat-label>
+    <mat-select formControlName="parent">
+      <input (keyup)="onKey($event.target.value)" />
+      <mat-option [value]="0">Keins</mat-option>
+      <ng-container *ngIf="element && element.parent">
+        <mat-option [value]="element.parent.id">{{
+          element.parent.name
+        }}</mat-option>
+      </ng-container>
+      <mat-option
+        *ngFor="let element of searchedElements"
+        [value]="element.id"
+        >{{ element.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+
+  <button type="submit" mat-button mat-raised-button>Speichern</button>
+  <ng-container *ngIf="edit">
+    <button
+      [routerLink]="['/element/' + element.id]"
+      mat-button
+      mat-stroked-button
+    >
+      Abbrechen
+    </button>
+  </ng-container>
+  <ng-container *ngIf="!edit">
+    <button [routerLink]="['/tree']" mat-button mat-stroked-button>
+      Abbrechen
+    </button>
+  </ng-container>
+</form>

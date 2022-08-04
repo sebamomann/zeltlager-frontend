@@ -1,0 +1,55 @@
+.data-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px 16px;
+
+ & > * mat-icon {
+  vertical-align: middle;
+ }
+
+  & > *:nth-child(odd) {
+    text-align: right;
+    font-weight: bolder;
+  }
+
+  & > *:nth-child(even) {
+    text-align: left;
+  }
+
+  .children {
+    & > span {
+      display: block;
+    }
+  }
+
+  .related-element {
+    & > * {
+      vertical-align: middle;
+    }
+
+    mat-icon {
+      margin: 0px 8px;
+      font-size: 20px;
+      height: 20px;
+      width: 20px;
+
+      &.direct {
+        margin: 0px 8px 0px 0px;
+      }
+    }
+  }
+}
+
+.open-element {
+  padding: 0px;
+}
+
+button{
+  margin-top: 25px;
+}
+
+
+.qr-code {
+  margin: 25px auto 0px;
+  width: fit-content;
+}

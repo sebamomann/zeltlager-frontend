@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.header {
+  width: auto;
+  padding: 16px;
+
+  h2 {
+    margin: 0 auto;
+    width: fit-content;
+
+    mat-icon {
+      vertical-align: middle;
+    }
+  }
+}
+
+.wrapper {
+  padding: 12px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 1000px;
+  min-width: 750px;
+  color: black;
+}
+
+.open-element {
+  opacity: 0.25
+}
+
+.mat-form-field-outline,
+.mat-form-field-empty.mat-form-field-label,
+.mat-form-field-label,
+::placeholder {
+  color: rgb(66, 66, 66) !important;
+}
+
+
+.mat-form-field-underline {
+  background-color: rgb(66, 66, 66) !important;
+}
+
+.mat-select-value {
+  color: black;
+}
+

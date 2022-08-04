@@ -1,0 +1,13 @@
+<div class="header">
+  <h2>Erstellen</h2>
+</div>
+<div class="wrapper">
+  <app-element-form (save)="create($event)" [edit]="false"></app-element-form>
+</div>
+
+<div *ngIf="createdElement" class="created">
+  Element "{{ createdElement.name }}" angelegt
+  <button mat-raised-button [routerLink]="['/element/' + createdElement.id]">
+    Öffnen
+  </button>
+</div>
