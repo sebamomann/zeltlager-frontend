@@ -52,4 +52,8 @@ button{
 .qr-code {
   margin: 25px auto 0px;
   width: fit-content;
+
+  img {
+    width: 250px;
+  }
 }

@@ -49,12 +49,14 @@
       />
     </div>
 
-    <button
-      mat-raised-button
-      [routerLink]="['/element/' + element.id + '/edit']"
-    >
-      Bearbeiten
-    </button>
-    <button [routerLink]="['/tree']" mat-stroked-button>Zurück</button>
+    <div class="actions">
+      <button
+        mat-raised-button
+        [routerLink]="['/element/' + element.id + '/edit']"
+      >
+        Bearbeiten
+      </button>
+      <button [routerLink]="['/tree']" mat-stroked-button>Zurück</button>
+    </div>
   </div>
 </ng-container>
