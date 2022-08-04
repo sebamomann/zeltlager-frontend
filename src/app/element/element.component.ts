@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -15,6 +14,8 @@ export class ElementComponent implements OnInit {
   public element = undefined;
 
   public childrenDepth = 1;
+
+  public baseUrl = environment.BASE_URL;
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) {
     this.route.paramMap.subscribe((params) => {
