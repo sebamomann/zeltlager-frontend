@@ -13,7 +13,7 @@ export class ElementFormComponent implements OnInit {
   @Input() public element;
   @Input() public edit;
 
-  private elementForm: FormGroup;
+  public elementForm: FormGroup;
   public searchedElements: any = []
 
   constructor(private httpClient: HttpClient) {
