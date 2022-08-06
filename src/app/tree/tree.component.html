@@ -7,7 +7,23 @@
     Neues Element
   </button>
 
-  <ng-container *ngIf="elements | async; let eles">
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      (keyup)="change($event.target.value)"
+      placeholder="Nach Element suchen"
+    />
+  </mat-form-field>
+
+  <ng-container *ngIf="elements | async; let eles; else: searchTemplate">
+    <div *ngIf="!isFilledArray(eles)" class="empty">
+      Es konnten keine Elemente gefunden werden.
+    </div>
     <app-tree-list [elements]="eles" [treeNode]="'children'"></app-tree-list>
   </ng-container>
 </div>
+
+<ng-template #searchTemplate>
+  <div class="searching">Suche nach Elementen ....</div>
+</ng-template>

@@ -30,9 +30,17 @@ mat-tree {
 }
 
 
+.mat-nested-tree-node, .mat-tree-node {
+  margin-bottom: 4px;
+}
+
 .mat-tree-node {
   min-height: unset;
-  font-size: unset;
+  font-size: 16px !important;
+
+  &:last-of-type:not([role="treeitem"]) {
+    margin-bottom: -13px;
+  }
 
   color: black;
   & > * {
