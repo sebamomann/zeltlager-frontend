@@ -15,7 +15,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     ElementFormModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class ElementCreateModule { }

@@ -21,7 +21,7 @@ export class ElementCreateComponent implements OnInit {
       this.createdElement = element;
       setTimeout(() => {
         this.createdElement = undefined;
-      }, 3000)
+      }, 5000)
     })
   }
 
