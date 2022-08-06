@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./element-form.component.scss']
 })
 export class ElementFormComponent implements OnInit {
+  @ViewChild('select', { static: true }) select: any;
+
   @Output() public save = new EventEmitter<any>();
   @Input() public element;
   @Input() public edit;
@@ -35,10 +37,15 @@ export class ElementFormComponent implements OnInit {
         this.elementForm.get("parent").setValue(this.element.parent.id)
       }
     }
+
+    this.select._handleKeydown = (event: KeyboardEvent) => {
+      if (event.key == "SPACE")
+        return
+    }
   }
 
   async onKey(value: string) {
-    this.httpClient.get(environment.API_URL + "elements", { params: { name: value } }).subscribe((elements) => {
+    this.httpClient.get(environment.API_URL + "elements", { params: { name: value, parent: "false", children: "false" } }).subscribe((elements) => {
       this.searchedElements = elements;
     })
   }
