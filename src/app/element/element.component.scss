@@ -76,6 +76,10 @@
 
 
 @media (max-width : 720px) {
+  .wrapper {
+    width: calc(90vw - 2 * 16px);
+  }
+
   .grid {
     grid-template-columns: 1fr;
     grid-gap: 50px;

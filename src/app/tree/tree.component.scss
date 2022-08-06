@@ -7,10 +7,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  & > *
-   {
+  & > * {
     vertical-align: middle;
     display: inline-block;
+    overflow: hidden;
    }
 
   .search {

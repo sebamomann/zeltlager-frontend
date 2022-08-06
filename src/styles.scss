@@ -88,9 +88,14 @@ input {
 
 @media (max-width : 720px) {
   .wrapper {
-    width: 90vw;
+    padding: 8px 16px;
+    width: calc(90vw - 2 * 16px);
     min-width: unset;
     max-width: unset;
+
+    .settings-button {
+      transform: translate(0,  -50%);
+    }
   }
 }
 
