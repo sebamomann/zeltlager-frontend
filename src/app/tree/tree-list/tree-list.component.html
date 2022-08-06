@@ -1,4 +1,5 @@
- <mat-tree
+<ng-container *ngIf="treeControl">
+  <mat-tree
     [dataSource]="dataSource"
     [treeControl]="treeControl"
     class="example-tree"
@@ -47,3 +48,4 @@
       </div>
     </mat-nested-tree-node>
   </mat-tree>
+</ng-container>

@@ -11,15 +11,18 @@
           [value]="childrenDepth"
           (change)="childrenDepthChange($event)"
           type="number"
-          placeholder="Tiefe Unterge."
+          placeholder="Tiefe untergeordnete Ele."
         />
       </mat-form-field>
-      <!-- <label for="">Tiefe Überge.</label>
-      <input
-        [value]="parentDepth"
-        (change)="parentDepthChange($event)"
-        type="number"
-      /> -->
+      <mat-form-field>
+        <input
+          matInput
+          [value]="parentDepth"
+          (change)="parentDepthChange($event)"
+          type="number"
+          placeholder="Tiefe übergeordnete Ele."
+        />
+      </mat-form-field>
     </div>
     <div class="grid">
       <div class="top">
@@ -30,23 +33,20 @@
           <span>{{ element.description }}</span>
           <ng-container *ngIf="element.parent">
             <span>Übergeordnet</span>
-            <span class="related-element">
-              <mat-icon
-                class="mat-icon-rtl-mirror"
-                class="open-element direct"
-                [routerLink]="['/element/' + element.parent.id]"
-              >
-                open_in_browser
-              </mat-icon>
-              <span>
-                {{ element.parent.name }}
-              </span>
-            </span>
+            <div class="children">
+              <app-tree-list
+                [elements]="element.parent"
+                [treeNode]="'parent'"
+              ></app-tree-list>
+            </div>
           </ng-container>
-          <ng-container *ngIf="element.children.length > 0">
+          <ng-container *ngIf="element.children && element.children.length > 0">
             <span>Untergeordnet</span>
             <div class="children">
-              <app-tree-list [elements]="element.children"></app-tree-list>
+              <app-tree-list
+                [elements]="element.children"
+                [treeNode]="'children'"
+              ></app-tree-list>
             </div>
           </ng-container>
         </div>

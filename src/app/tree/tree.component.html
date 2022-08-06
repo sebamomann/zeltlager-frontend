@@ -8,6 +8,6 @@
   </button>
 
   <ng-container *ngIf="elements | async; let eles">
-    <app-tree-list [elements]="eles"></app-tree-list>
+    <app-tree-list [elements]="eles" [treeNode]="'children'"></app-tree-list>
   </ng-container>
 </div>

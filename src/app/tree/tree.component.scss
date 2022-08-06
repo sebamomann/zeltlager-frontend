@@ -4,6 +4,10 @@ button {
   margin-bottom: 25px;
 }
 
+::ng-deep mat-tree {
+  transform: translateY(-7px)
+}
+
 ::ng-deep .mat-tree-node{
   line-height: 32px;
 }
