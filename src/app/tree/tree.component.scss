@@ -43,8 +43,10 @@
   grid-gap: 0px 10px;
 
   ::ng-deep app-tree-list.children-list mat-tree {
-    border-left: 1px solid black;
     padding-left: 12px;
+    background-color: #ffffff61;
+    border-radius: 10px;
+    padding-left: 10px;
   }
 
   ::ng-deep mat-tree {
