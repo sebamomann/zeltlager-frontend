@@ -26,6 +26,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 1000px;
   min-width: 500px;
   color: black;
+  position: relative;
+
+  h2{
+    width: 100%;
+    text-align: center;
+  }
 
   .actions {
     max-width: 250px;
@@ -34,6 +40,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
+
+  .settings-button {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+}
+
+input {
+  color: black !important;
 }
 
 .open-element {
@@ -61,6 +78,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: gray;
   margin: 12px 0px;
 }
+
+.mat-dialog-container {
+  background-color: white !important;
+  color: black;
+}
+
 
 
 @media (max-width : 720px) {

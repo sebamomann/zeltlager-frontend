@@ -1,5 +1,8 @@
+import { ElementSettingsDialogComponent } from './element-settings-dialog/element-settings-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { ElementSettingsDialogModule } from './element-settings-dialog/element-settings-dialog.module';
 import { TreeListModule } from './../tree/tree-list/tree-list.module';
-import { MatIconModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { MatIconModule, MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -21,7 +24,10 @@ const routes: Routes = [
     MatIconModule,
     MatButtonModule,
     TreeListModule,
-    MatInputModule
-  ]
+    MatInputModule,
+    MatDialogModule,
+    ElementSettingsDialogModule
+  ],
+  entryComponents: [ElementSettingsDialogComponent]
 })
 export class ElementModule { }

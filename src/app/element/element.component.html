@@ -1,29 +1,18 @@
 <ng-container *ngIf="element">
-  <div class="header">
-    <h2>{{ element.name }}</h2>
-  </div>
+  <div class="header"></div>
 
   <div class="element-wrapper wrapper">
-    <div class="filter-wrapper">
-      <mat-form-field>
-        <input
-          matInput
-          [value]="childrenDepth"
-          (change)="childrenDepthChange($event)"
-          type="number"
-          placeholder="Tiefe untergeordnete Ele."
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          [value]="parentDepth"
-          (change)="parentDepthChange($event)"
-          type="number"
-          placeholder="Tiefe übergeordnete Ele."
-        />
-      </mat-form-field>
-    </div>
+    <h2>{{ element.name }}</h2>
+
+    <button
+      (click)="openDialog()"
+      mat-flat-button
+      color="accent"
+      class="settings-button"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+
     <div class="grid">
       <div class="top">
         <div class="data-wrapper">

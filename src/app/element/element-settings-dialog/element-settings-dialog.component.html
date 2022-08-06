@@ -1,0 +1,25 @@
+<div class="filter-wrapper">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="tmpValueChild"
+      type="number"
+      placeholder="Tiefe untergeordnete Ele."
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="tmpValueParent"
+      type="number"
+      placeholder="Tiefe übergeordnete Ele."
+    />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onSaveClick()" cdkFocusInitial mat-raised-button>
+    OK
+  </button>
+  <button mat-button (click)="onNoClick()" mat-button>Abbrechen</button>
+</div>
