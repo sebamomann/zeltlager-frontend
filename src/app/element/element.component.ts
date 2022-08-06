@@ -53,5 +53,4 @@ export class ElementComponent implements OnInit {
       this.fetchData();
     });
   }
-
 }
