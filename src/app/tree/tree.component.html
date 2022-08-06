@@ -3,18 +3,26 @@
 </div>
 
 <div class="tree-wrapper wrapper">
-  <button [routerLink]="['/element/create']" mat-raised-button>
-    Neues Element
-  </button>
+  <div class="search-header">
+    <div class="search">
+      <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          matInput
+          type="text"
+          (keyup)="change($event.target.value)"
+          placeholder="Nach Element suchen"
+        />
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input
-      matInput
-      type="text"
-      (keyup)="change($event.target.value)"
-      placeholder="Nach Element suchen"
-    />
-  </mat-form-field>
+    <div class="create">
+      <button [routerLink]="['/element/create']" mat-raised-button>
+        <mat-icon matPrefix>create_new_folder</mat-icon>
+        Anlegen
+      </button>
+    </div>
+  </div>
 
   <ng-container *ngIf="elements | async; let eles; else: searchTemplate">
     <div *ngIf="!isFilledArray(eles)" class="empty">

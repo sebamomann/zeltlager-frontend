@@ -1,7 +1,30 @@
 
 
-button {
+.search-header {
   margin-bottom: 25px;
+  padding: 8px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  & > *
+   {
+    vertical-align: middle;
+    display: inline-block;
+   }
+
+  .search {
+    mat-icon {
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  }
+
+  .create {
+    transform: translateY(-5px);
+    align-self: center;
+    text-align: right;
+  }
 }
 
 ::ng-deep mat-tree {

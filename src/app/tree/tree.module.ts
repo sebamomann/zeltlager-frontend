@@ -19,7 +19,8 @@ const routes: Routes = [
     TreeListModule,
     MatButtonModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ]
 })
 export class TreeModule { }
