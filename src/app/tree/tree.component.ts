@@ -14,8 +14,8 @@ import { ElementSettingsDialogComponent } from '../element/element-settings-dial
 export class TreeComponent implements OnInit {
 
   private timeout;
-  private searchString;
 
+  public searchString: string;
   public elements = undefined;
 
   constructor(private httpClient: HttpClient, private dialog: MatDialog) {
@@ -45,7 +45,7 @@ export class TreeComponent implements OnInit {
       return;
     }
 
-    const localStorageData = localStorage.getItem("elementSettings");
+    const localStorageData = localStorage.getItem("treeSettings");
     const localStorageDataJson = localStorageData ? JSON.parse(localStorageData) : { childrenDepth: 1, parentDepth: 1 };
 
     this.elements = this.httpClient.get(environment.API_URL + "elements", {

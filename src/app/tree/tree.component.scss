@@ -34,3 +34,65 @@
 ::ng-deep .mat-tree-node{
   line-height: 32px;
 }
+
+.search-hit-block {
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-gap: 0px 10px;
+
+  ::ng-deep app-tree-list.children-list mat-tree {
+    border-left: 1px solid black;
+    padding-left: 12px;
+  }
+
+  ::ng-deep mat-tree {
+    transform: unset;
+  }
+
+  span.element-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    button {
+      vertical-align: middle;
+      height: 20px;
+      width: 20px;
+      margin-right: 12px;
+      line-height: 0px;
+    }
+  }
+
+  span.no-content {
+    font-style: italic;
+    opacity: 0.5
+  }
+}
+
+.children-tree-prefix,
+.parent-tree-prefix {
+  opacity: 0.5;
+
+  mat-icon {
+    margin-right: 3px;
+  }
+}
+
+.parent-tree-prefix {
+  opacity: 0.5;
+
+  mat-icon {
+    transform: rotate(90deg);
+  }
+}
+
+.open-element mat-icon{
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  line-height: 20px;
+}

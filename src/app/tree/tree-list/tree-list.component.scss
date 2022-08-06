@@ -18,6 +18,9 @@ mat-tree {
  */
 .example-tree .mat-nested-tree-node div[role=group] {
   padding-left: 32px;
+  padding-left: 22px;
+  border-left: 1px solid gray;
+  margin-left: 9px;
 }
 
 /*
@@ -32,6 +35,10 @@ mat-tree {
 
 .mat-nested-tree-node, .mat-tree-node {
   margin-bottom: 4px;
+}
+
+.mat-tree-node[role="treeitem"] {
+  padding-left: 0px !important;
 }
 
 .mat-tree-node {
