@@ -1,12 +1,13 @@
-<div class="header">
-  <h2>Bearbeiten</h2>
-</div>
-<div class="wrapper">
-  <ng-container *ngIf="element | async; let el">
-    <app-element-form
-      [element]="el"
-      [edit]="true"
-      (save)="update($event)"
-    ></app-element-form>
-  </ng-container>
-</div>
+<mat-card class="wrapper">
+  <mat-card-title>Bearbeiten</mat-card-title>
+  <mat-card-content>
+    <!-- TODO ELEMENT NOT FOUND -->
+    <ng-container *ngIf="element | async; let el">
+      <app-element-form
+        [element]="el"
+        [edit]="true"
+        (save)="update($event)"
+      ></app-element-form>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

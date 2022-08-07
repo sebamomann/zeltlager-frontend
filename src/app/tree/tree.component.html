@@ -1,8 +1,6 @@
-<div class="header">
-  <h2>Übersicht</h2>
-</div>
+<mat-card class="tree-wrapper wrapper">
+  <mat-card-title>Übersicht</mat-card-title>
 
-<div class="tree-wrapper wrapper">
   <button
     (click)="openDialog()"
     mat-flat-button
@@ -33,64 +31,73 @@
     </div>
   </div>
 
-  <ng-container *ngIf="elements | async; let eles; else: searchTemplate">
-    <ng-container *ngIf="!searchString">
-      <div *ngIf="!isFilledArray(eles)" class="empty">
-        Es konnten keine Elemente gefunden werden.
-      </div>
-      <app-tree-list [elements]="eles" [treeNode]="'children'"></app-tree-list>
-    </ng-container>
+  <mat-card-content>
+    <ng-container *ngIf="elements | async; let eles; else: searchTemplate">
+      <ng-container *ngIf="!searchString">
+        <div *ngIf="!isFilledArray(eles)" class="empty">
+          Es konnten keine Elemente gefunden werden.
+        </div>
+        <app-tree-list
+          [elements]="eles"
+          [treeNode]="'children'"
+        ></app-tree-list>
+      </ng-container>
 
-    <ng-container *ngIf="searchString">
-      <div *ngIf="!isFilledArray(eles)" class="empty">
-        Es konnten keine Elemente gefunden werden.
-      </div>
-      <div *ngFor="let element of eles; let i = index" class="search-hit-block">
-        <span class="element-name">
-          <button
-            mat-icon-button
-            class="open-element"
-            [routerLink]="['/element/' + element.id]"
+      <ng-container *ngIf="searchString">
+        <div *ngIf="!isFilledArray(eles)" class="empty">
+          Es konnten keine Elemente gefunden werden.
+        </div>
+        <div
+          *ngFor="let element of eles; let i = index"
+          class="search-hit-block"
+        >
+          <span class="element-name">
+            <button
+              mat-icon-button
+              class="open-element"
+              [routerLink]="['/element/' + element.id]"
+            >
+              <mat-icon class="mat-icon-rtl-mirror"> open_in_browser </mat-icon>
+            </button>
+            {{ element.name }}</span
           >
-            <mat-icon class="mat-icon-rtl-mirror"> open_in_browser </mat-icon>
-          </button>
-          {{ element.name }}</span
-        >
-        <span class="children-tree-prefix"
-          ><mat-icon>subdirectory_arrow_right</mat-icon></span
-        >
-        <ng-container *ngIf="element.children && element.children.length > 0">
-          <app-tree-list
-            [elements]="element.children"
-            [treeNode]="'children'"
-            [ngClass]="{ 'children-list': element.children.length > 1 }"
-          ></app-tree-list>
-        </ng-container>
-        <span
-          *ngIf="!element.children || element.children.length == 0"
-          class="no-content"
-        >
-          Kein Inhalt</span
-        >
+          <span class="children-tree-prefix"
+            ><mat-icon>subdirectory_arrow_right</mat-icon></span
+          >
+          <ng-container *ngIf="element.children && element.children.length > 0">
+            <app-tree-list
+              [elements]="element.children"
+              [treeNode]="'children'"
+              [ngClass]="{ 'children-list': element.children.length > 1 }"
+            ></app-tree-list>
+          </ng-container>
+          <span
+            *ngIf="!element.children || element.children.length == 0"
+            class="no-content"
+          >
+            Kein Inhalt</span
+          >
 
-        <span class="parent-tree-prefix"
-          ><mat-icon>subdirectory_arrow_left</mat-icon></span
-        >
-        <ng-container *ngIf="element.parent">
-          <app-tree-list
-            [elements]="element.parent"
-            [treeNode]="'parent'"
-          ></app-tree-list>
-        </ng-container>
+          <span class="parent-tree-prefix"
+            ><mat-icon>subdirectory_arrow_left</mat-icon></span
+          >
+          <ng-container *ngIf="element.parent">
+            <app-tree-list
+              [elements]="element.parent"
+              [treeNode]="'parent'"
+            ></app-tree-list>
+          </ng-container>
 
-        <span *ngIf="!element.parent" class="no-content">
-          Keine übergeordneten Element</span
-        >
-      </div>
+          <span *ngIf="!element.parent" class="no-content">
+            Keine übergeordneten Element</span
+          >
+        </div>
+      </ng-container>
     </ng-container>
-  </ng-container>
-</div>
+  </mat-card-content>
+</mat-card>
 
 <ng-template #searchTemplate>
+  <mat-spinner></mat-spinner>
   <div class="searching">Suche nach Elementen ....</div>
 </ng-template>

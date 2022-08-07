@@ -1,14 +1,23 @@
-<div class="header">
-  <h2>Erstellen</h2>
-</div>
+<mat-card class="wrapper">
+  <mat-card-title>Erstellen</mat-card-title>
+  <mat-card-content>
+    <ng-container *ngIf="!createdElement">
+      <app-element-form
+        (save)="create($event)"
+        [edit]="false"
+      ></app-element-form>
+    </ng-container>
 
-<div *ngIf="createdElement" class="created">
-  Element "{{ createdElement.name }}" angelegt
-  <button mat-raised-button [routerLink]="['/element/' + createdElement.id]">
-    Öffnen
-  </button>
-</div>
-
-<div class="wrapper">
-  <app-element-form (save)="create($event)" [edit]="false"></app-element-form>
-</div>
+    <ng-container *ngIf="createdElement">
+      <div class="created">
+        Element "{{ createdElement.name }}" angelegt
+        <button
+          mat-raised-button
+          [routerLink]="['/element/' + createdElement.id]"
+        >
+          Öffnen
+        </button>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

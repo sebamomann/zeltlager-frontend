@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { TreeComponent } from './tree.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatFormFieldModule, MatCardModule, MatSpinner, MatProgressSpinnerModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '**', component: TreeComponent },
@@ -23,7 +23,9 @@ const routes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
-    ElementSettingsDialogModule
+    ElementSettingsDialogModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     ElementSettingsDialogComponent

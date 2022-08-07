@@ -1,9 +1,11 @@
-<ng-container *ngIf="element">
-  <div class="header"></div>
+<mat-card class="wrapper" *ngIf="element">
+  <mat-card-title
+    >{{ element.name
+    }}<mat-icon class="qr-code" (click)="openQrCode()">qr_code</mat-icon>
+    </mat-card-title
+  >
 
-  <div class="element-wrapper wrapper">
-    <h2>{{ element.name }}</h2>
-
+  <mat-card-content>
     <button
       (click)="openDialog()"
       mat-flat-button
@@ -58,11 +60,11 @@
                 baseUrl +
                 'element/' +
                 element.id +
-                '&choe=UTF-8'
+                '&choe=UTF-8&chld=L|0'
             }}"
           />
         </div>
       </div>
     </div>
-  </div>
-</ng-container>
+  </mat-card-content>
+</mat-card>

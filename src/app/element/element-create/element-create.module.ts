@@ -1,4 +1,4 @@
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatCardModule } from '@angular/material';
 import { ElementFormModule } from './../element-form/element-form.module';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -16,7 +16,8 @@ const routes: Routes = [
     CommonModule,
     ElementFormModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class ElementCreateModule { }

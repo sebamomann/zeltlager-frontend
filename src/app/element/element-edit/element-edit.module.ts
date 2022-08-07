@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    ElementFormModule
+    ElementFormModule,
+    MatCardModule
   ]
 })
 export class ElementEditModule { }

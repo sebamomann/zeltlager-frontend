@@ -1,3 +1,4 @@
+import { QrCodeDialogComponent } from './qr-code-dialog/qr-code-dialog.component';
 import { ElementSettingsDialogComponent } from './element-settings-dialog/element-settings-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -52,5 +53,12 @@ export class ElementComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.fetchData();
     });
+  }
+
+  openQrCode() {
+    const dialogRefQrCode = this.dialog.open(QrCodeDialogComponent, {
+      width: "90%",
+      data: { id: this.element.id }
+    })
   }
 }

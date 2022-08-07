@@ -1,11 +1,9 @@
 
 
 .search-header {
-  margin-bottom: 25px;
-  padding: 8px;
-  border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 16px;
 
   & > * {
     vertical-align: middle;
