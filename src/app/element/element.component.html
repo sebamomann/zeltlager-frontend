@@ -1,19 +1,11 @@
 <mat-card class="wrapper" *ngIf="element">
   <mat-card-title
-    >{{ element.name
-    }}<mat-icon class="qr-code" (click)="openQrCode()">qr_code</mat-icon>
-    </mat-card-title
-  >
+    ><span>{{ element.name }}</span
+    ><mat-icon class="qr-code" (click)="openQrCode()">qr_code</mat-icon>
+  </mat-card-title>
 
   <mat-card-content>
-    <button
-      (click)="openDialog()"
-      mat-flat-button
-      color="accent"
-      class="settings-button"
-    >
-      <mat-icon>settings</mat-icon>
-    </button>
+    <mat-icon class="settings-button" (click)="openDialog()">settings</mat-icon>
 
     <div class="grid">
       <div class="top">
@@ -21,7 +13,8 @@
           <span>Anzahl</span>
           <span>{{ element.number }}</span>
           <span>Beschreibung</span>
-          <span>{{ element.description }}</span>
+          <span *ngIf="element.description">{{ element.description }}</span>
+          <span *ngIf="!element.description">---</span>
           <ng-container *ngIf="element.parent">
             <span>Übergeordnet</span>
             <div class="children">
@@ -48,7 +41,7 @@
           >
             Bearbeiten
           </button>
-          <button [routerLink]="['/tree']" mat-stroked-button>Zurück</button>
+          <button [routerLink]="['/tree']" mat-flat-button>Zurück</button>
         </div>
       </div>
       <div class="bottom">

@@ -22,6 +22,11 @@
     transform: translateY(-5px);
     align-self: center;
     text-align: right;
+
+    button {
+      background-color: #a1d0ff;
+      color:#37414a;
+    }
   }
 }
 
@@ -42,7 +47,7 @@
 
   ::ng-deep app-tree-list.children-list mat-tree {
     padding-left: 12px;
-    background-color: #ffffff61;
+    background-color: #ffffff24;
     border-radius: 10px;
     padding-left: 10px;
   }

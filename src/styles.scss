@@ -1,19 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: white;
+  padding-bottom: 100px;
 
-.header {
-  width: auto;
-  padding: 16px;
-
-  h2 {
-    margin: 0 auto;
-    width: fit-content;
-
-    mat-icon {
-      vertical-align: middle;
-    }
+  &:before {
+    content: "";
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.25;
+    overflow: hidden;
   }
 }
 
@@ -24,23 +29,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-align: center;
     margin-bottom: 16px;
 
+    span {
+      vertical-align: middle;
+    }
+
     mat-icon {
       margin-left: 8px;
       vertical-align: middle;
     }
+  }
+
+  .mat-card-content {
+    font-size: 18px;
   }
 }
 
 
 .wrapper {
   padding: 16px 32px;
-  background-color: rgb(236, 236, 236);
   border-radius: 10px;
+  background-color: #505e6ce5;
   margin: 0 auto;
   width: fit-content;
   max-width: 1000px;
   min-width: 500px;
-  color: black;
+  color: white;
   position: relative;
 
   h2{
@@ -54,38 +67,50 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    grid-gap: 16px;
+
+    & button.mat-raised-button {
+      background-color: #a1d0ff;
+      color:black;
+    }
+
+    & button.mat-flat-button {
+      background-color: white;
+      color: black;
+    }
   }
 
   .settings-button {
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 5px;
     position: absolute;
-    transform: translate(-50%, -50%);
+    color: black;
+    opacity: 0.25;
   }
 }
 
 input {
-  color: black !important;
+  color: white !important;
 }
 
 .open-element {
-  opacity: 0.25
+  color: #a1d0ff;
 }
 
 .mat-form-field-outline,
 .mat-form-field-empty.mat-form-field-label,
 .mat-form-field-label,
 ::placeholder {
-  color: rgb(66, 66, 66) !important;
+  color: white !important;
 }
 
 
 .mat-form-field-underline {
-  background-color: rgb(66, 66, 66) !important;
+  background-color: white !important;
 }
 
 .mat-select-value {
-  color: black;
+  color: white;
 }
 
 .empty{
@@ -107,10 +132,6 @@ input {
     width: calc(90vw - 2 * 16px);
     min-width: unset;
     max-width: unset;
-
-    .settings-button {
-      transform: translate(0,  -50%);
-    }
   }
 }
 
