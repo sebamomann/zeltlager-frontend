@@ -45,6 +45,16 @@ body {
 }
 
 
+button.mat-raised-button {
+  background-color: #a1d0ff;
+  color:black;
+}
+
+button.mat-flat-button {
+  background-color: white;
+  color: black;
+}
+
 .wrapper {
   padding: 16px 32px;
   border-radius: 10px;
@@ -69,15 +79,6 @@ body {
     align-items: center;
     grid-gap: 16px;
 
-    & button.mat-raised-button {
-      background-color: #a1d0ff;
-      color:black;
-    }
-
-    & button.mat-flat-button {
-      background-color: white;
-      color: black;
-    }
   }
 
   .settings-button {
@@ -89,7 +90,7 @@ body {
   }
 }
 
-input {
+input, textarea {
   color: white !important;
 }
 
@@ -113,6 +114,26 @@ input {
   color: white;
 }
 
+.mat-dialog-container {
+  .mat-form-field-outline, .mat-form-field-empty.mat-form-field-label, .mat-form-field-label, ::placeholder {
+  color: black !important;
+  }
+
+
+  .mat-form-field-underline {
+    background-color: black !important;
+  }
+
+  .mat-select-value {
+    color: black;
+  }
+
+  input, textarea {
+    color: black !important;
+  }
+
+}
+
 .empty{
   display: block;
   color: gray;
@@ -132,6 +153,10 @@ input {
     width: calc(90vw - 2 * 16px);
     min-width: unset;
     max-width: unset;
+  }
+
+  .mat-card .mat-card-content {
+    font-size: 16px;
   }
 }
 

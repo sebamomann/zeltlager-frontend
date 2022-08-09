@@ -53,17 +53,11 @@
 
   <button type="submit" mat-button mat-raised-button>Speichern</button>
   <ng-container *ngIf="edit">
-    <button
-      [routerLink]="['/element/' + element.id]"
-      mat-button
-      mat-stroked-button
-    >
+    <button [routerLink]="['/element/' + element.id]" mat-button mat-button>
       Abbrechen
     </button>
   </ng-container>
   <ng-container *ngIf="!edit">
-    <button [routerLink]="['/tree']" mat-button mat-stroked-button>
-      Abbrechen
-    </button>
+    <button [routerLink]="['/tree']" mat-button mat-button>Abbrechen</button>
   </ng-container>
 </form>

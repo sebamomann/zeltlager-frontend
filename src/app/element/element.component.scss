@@ -78,6 +78,8 @@ display: none;
 
   img {
     width: 200px;
+     border-radius: 5px;
+
   }
 }
 
@@ -91,6 +93,10 @@ display: none;
 
   .wrapper {
     width: calc(90vw - 2 * 16px);
+  }
+
+  .data-wrapper {
+    grid-template-columns: 2fr 3fr;
   }
 
   .grid {
